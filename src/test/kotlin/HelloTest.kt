@@ -9,6 +9,6 @@ internal class HelloTest {
 
 
   @Test fun foo2() {
-    expect(2+2).toBe(34)
+    expect(2+4).toBe(6)
   }
 }
