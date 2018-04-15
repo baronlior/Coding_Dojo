@@ -14,15 +14,27 @@ group 'com.ni'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = "Hello"
 
 
 repositories {
     jcenter()
 }
 
+
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
-    testImplementation 'com.nhaarman:expect.kt:0.6.2'
+    testCompile (
+            'org.junit.jupiter:junit-jupiter-api:5.1.0',
+            'org.junit.jupiter:junit-jupiter-engine:5.1.0',
+            "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version",
+            'com.nhaarman:expect.kt:0.6.2'
+    )
+}
+
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/kotlin'
+    test.kotlin.srcDirs += 'src/test/kotlin'
 }
