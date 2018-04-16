@@ -3,10 +3,10 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'kotlin'
 
-
 buildscript {
+
+    // add kotlin support
     ext.kotlin_version = '1.2.31'
-    ext.junit_version = '5.1.1'
 
     repositories {
         jcenter()
@@ -16,6 +16,9 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
+
+ext.junit_version = '5.1.1'
+
 
 repositories {
     jcenter()
