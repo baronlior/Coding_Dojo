@@ -1,3 +1,9 @@
+group 'com.ni'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'kotlin'
+
+
 buildscript {
     ext.kotlin_version = '1.2.31'
     ext.junit_version = '5.1.1'
@@ -10,12 +16,6 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
-
-group 'com.ni'
-version '1.0-SNAPSHOT'
-
-apply plugin: 'kotlin'
-
 
 repositories {
     jcenter()
@@ -31,20 +31,14 @@ dependencies {
     )
 }
 
-sourceSets {
-    main.kotlin.srcDirs += 'src/main/kotlin'
-    test.kotlin.srcDirs += 'src/test/kotlin'
-}
 
 test {
-    // Enable JUnit 5 (Gradle 4.6+).
+    // required for JUnit 5
     useJUnitPlatform()
 
-    // Always run tests, even when nothing changed.
-    dependsOn 'cleanTest'
+    dependsOn 'cleanTest'    // Always run tests, even when nothing changed.
 
-    // Show test results.
-    testLogging {
+    testLogging { // Show test results of types
         events "passed", "skipped", "failed"
     }
 }
